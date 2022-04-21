@@ -3,7 +3,7 @@ Automatically reconnect to OUC campus network if disconnected from the Internet.
 
 使用方法：
 
-下载https://github.com/Cuiyingzhe/OUCNetworkAutoConnection/releases/download/v2.0/yxrz.exe并运行，输入校园网账号和密码即可
+下载 https://github.com/Cuiyingzhe/OUCNetworkAutoConnection/releases/download/v2.0/yxrz.exe 并运行，输入校园网账号和密码即可
 
 打包方法：
 
