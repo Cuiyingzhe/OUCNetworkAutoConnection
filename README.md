@@ -1,5 +1,5 @@
 # OUCNetworkAutoConnection
-Automatically reconnect to OUC campus network if disconnected from the Internet.
+An automatically reconnection tool for OUC campus network.
 
 使用方法：
 
