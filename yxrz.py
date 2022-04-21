@@ -31,12 +31,9 @@ def login(oucid, pwd):
     response = requests.post(url, data, headers=header).status_code
     print("回应代码{}".format(response))
 
-oucid = input('please input your OUC id: ')
-pwd = input('please input your password: ')
-for i in range(3):
-    print('WARNING! make sure the above information is correct, which will NOT be automatically checked by this program')
-    time.sleep(1)
-while True:
+
+def diag_and_login(oucid, pwd, dt):
+# dt: delta_t (second) 
     r = run('curl www.baidu.com',
         stdout=PIPE,
         stderr=PIPE,
@@ -44,7 +41,18 @@ while True:
         shell=True)
     if len(str(r.stdout, 'UTF-8'))==0:
         print(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+'  正在重新连接')
-        login(oucid, pwd)
+        login(oucid = oucid, pwd = pwd)
     else:
         print(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+'  连接成功')
-    time.sleep(1) #单位 s
+    time.sleep(dt) #单位 s
+oucid = input('please input your OUC id: ')
+pwd = input('please input your password: ')
+dt = 0.01
+while True:
+    try:
+        diag_and_login(oucid = oucid, pwd = pwd, dt = dt)
+    except:
+        print(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+'  重新连接失败，正在重试..')
+        diag_and_login(oucid = oucid, pwd = pwd, dt = dt)
+    finally:
+        print(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+'  连接成功')
