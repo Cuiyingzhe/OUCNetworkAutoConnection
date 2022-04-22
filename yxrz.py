@@ -51,8 +51,5 @@ dt = 0.01
 while True:
     try:
         diag_and_login(oucid = oucid, pwd = pwd, dt = dt)
-    except:
-        print(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+'  重新连接失败，正在重试..')
-        diag_and_login(oucid = oucid, pwd = pwd, dt = dt)
     finally:
-        print(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+'  连接成功')
+        continue #only legal for python version>3.8 see https://docs.python.org/3/reference/compound_stmts.html#finally
