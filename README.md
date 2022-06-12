@@ -13,3 +13,4 @@ An automatically reconnection tool for OUC campus network.
 
 注意，仅支持通过`yxrz.ouc.edu.cn`登录认证的办公室有线网用户。
 
+*可将yxrz.py中输入的用户名密码直接赋值，打包为yxrz.exe后放入windows开机启动项中以实现自动启动。实测(Win11)在输入windows用户名密码前，该程序即可启动，如向日葵等远程软件也设置为开机自动启动，则可以实现远程主机意外重启后的远程连接。
